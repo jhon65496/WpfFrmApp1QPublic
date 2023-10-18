@@ -94,7 +94,7 @@
                     <TextBlock Text="{Binding TitleDetail}" FontSize="26"/>
                     <Separator Background="DarkBlue"/>
                 </StackPanel>
-                <ContentControl Grid.Row="1" Content="{Binding CurrentView}" />
+                <ContentControl Grid.Row="1" Content="{Binding CurrentView, Mode=OneWayToSource}" />
             </Grid>
         </GroupBox>
 

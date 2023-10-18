@@ -54,10 +54,12 @@ namespace WpfFrmApp1.ViewModels.Views
                 selectedIndexCalculation = value;
 
                 Debug.WriteLine($"--- --- --- --- --- --- --- --- ---");
-                Debug.WriteLine($"IndexesViewModel--selectedIndexCalculation -- {selectedIndexCalculation.Name}");
+                Debug.WriteLine($"IndexesViewModel--selectedIndexCalculation -- Start ");
+                if (this.managerIndexesViewModel == null) return;                
                 this.managerIndexesViewModel.SelectedIndexCalculation = SelectedIndexCalculation;
 
-                RaisePropertyChanged(nameof(SelectedIndexCalculation));
+                RaisePropertyChanged(nameof(SelectedIndexCalculation));                
+                Debug.WriteLine($"IndexesViewModel--selectedIndexCalculation -- {selectedIndexCalculation.Name} -- END");
             }
         }
 
