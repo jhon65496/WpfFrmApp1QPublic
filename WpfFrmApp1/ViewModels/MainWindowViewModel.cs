@@ -8,16 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using WpfFrmApp1.Models;
 using WpfFrmApp1.ViewModels.Views;
+using WpfFrmApp1.Views.Views;
 
 namespace WpfFrmApp1.ViewModels
 {
     internal class MainWindowViewModel : BaseVM
     {
-        
+        ManagerIndexesViewModel managerIndexesViewModel;
         public MainWindowViewModel()
         {   
             LoadItemMainMenu();
             SelectedMainMenuItem = MainMenuItems[1]; // default 
+
+            managerIndexesViewModel = new ManagerIndexesViewModel();
         }
 
         #region Title
@@ -113,12 +116,20 @@ namespace WpfFrmApp1.ViewModels
             {
                 case "ManagerIndexes":
                     ManagerIndexesViewModel managerIndexesViewModel = new ManagerIndexesViewModel();
+                    ManagerIndexesView managerIndexesView = new ManagerIndexesView();
+                    managerIndexesView.DataContext = managerIndexesViewModel;
+                    
                     CurrentView = managerIndexesViewModel;
                     // mainWindowViewModel.CurrentView = ManagerIndexesViewModel2;
                     break;
 
                 case "Indexes":
+                    // IndexesViewModel indexesViewModel = new IndexesViewModel(managerIndexesViewModel);
                     IndexesViewModel indexesViewModel = new IndexesViewModel();
+                    
+                    // IndexesView indexesView = new IndexesView();
+                    // indexesView.DataContext = indexesViewModel; 
+
                     CurrentView = indexesViewModel;
                     break;
                 

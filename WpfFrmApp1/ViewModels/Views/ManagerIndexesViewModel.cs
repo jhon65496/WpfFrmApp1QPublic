@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WpfFrmApp1.Models;
+using WpfFrmApp1.Views.Views;
 
 namespace WpfFrmApp1.ViewModels.Views
 {
@@ -23,9 +24,20 @@ namespace WpfFrmApp1.ViewModels.Views
             this.indexesViewModel = new IndexesViewModel(this);
             this.providersViewModel = new ProvidersViewModel();                        
             this.indexesProvidersViewModel = new IndexesProvidersViewModel();
-            
 
-            // View
+            // View+ViewModel
+            IndexesView indexesV = new IndexesView();
+            indexesV.DataContext = indexesViewModel;
+
+            ProvidersView providersView = new ProvidersView();
+            providersView.DataContext = providersViewModel;
+
+
+            IndexesProvidersView indexesProvidersView = new IndexesProvidersView();
+            indexesProvidersView.DataContext = indexesProvidersViewModel;
+
+
+            // View -> ContentControl
             IndexesView = this.indexesViewModel;
             ProvidersView = this.providersViewModel;
             IndexesProvidersView = this.indexesProvidersViewModel;
